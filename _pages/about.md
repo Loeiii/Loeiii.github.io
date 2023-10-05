@@ -8,7 +8,6 @@ redirect_from:
   - /about.html
 ---
 
-This is the front page of a website that is used to record my study and life.
+This is the front page of a website that is used to record my study.
 
-# markdown is usful
 ======
