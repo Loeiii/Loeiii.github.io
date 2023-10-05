@@ -81,12 +81,12 @@ analytics:
 # Site Author
 author:
   name             : "Oct Yan"
-  avatar           : "profile.png"
+  avatar           : "IMG_0087.jpeg"
   bio              : "Tsinghua University"
   location         : "Shenzhen, Guangdong"
   employer         :
   pubmed           : "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
-  googlescholar    : "http://yourfullgooglescholarurl.com"
+  googlescholar    :  #"http://yourfullgooglescholarurl.com"
   email            :
   researchgate     :  # example: "https://www.researchgate.net/profile/yourprofile"
   uri              :
@@ -96,7 +96,7 @@ author:
   flickr           :
   facebook         :
   foursquare       :
-  github           : "oct"
+  github           : "Loeiii"
   google_plus      :
   keybase          :
   instagram        :
