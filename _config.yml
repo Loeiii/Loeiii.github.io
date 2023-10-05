@@ -194,7 +194,7 @@ defaults:
   # _posts
   - scope:
       path: ""
-      type: notes
+      type: posts
     values:
       layout: single
       author_profile: true
