@@ -1,3 +1,12 @@
+---
+title: 'Attention'
+date: 2023-10-05
+permalink: /posts/2013/08/blog-post-2/
+tags:
+  - attention
+  - transformer
+---
+
 # 注意力机制
 
 注意力机制通过**注意力汇聚**将*查询*（自主性提示，**Q**）和*键*（非自主性提示，**K**）结合在一起，实现对*值*（感官输入，**V**）的选择倾向，其中键和值是成对的。
