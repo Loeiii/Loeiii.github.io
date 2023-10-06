@@ -1,7 +1,7 @@
 ---
 title: 'Attention'
 date: 2023-10-05
-permalink: /posts/Attention/
+permalink: /_posts/Attention/
 tags:
   - attention
   - transformer
