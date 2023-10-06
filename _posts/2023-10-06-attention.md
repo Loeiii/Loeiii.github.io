@@ -22,12 +22,12 @@ tags:
 ***Nadaraya-Watson核回归*（Nadaraya-Watson kernel regression）**是一个典型的非参数注意力汇聚模型，如式$\eqref{eq:NW_kernel}$所示：
 
 $$
-\begin{equation}
+%\begin{equation}
 	\begin{align}
 		f(q) &= \sum_{i=1}^n \frac{K(q, k_i)}{\sum_{j=1}^n K(q, k_j)} v_i \label{eq:NW_kernel}\\
 		&= \sum_{i = 1}^n \alpha(q, k_i)v_i \label{eq:non_para}
 	\end{align}
-\end{equation}
+%\end{equation}
 $$
 
 其中$q$为查询，$(k_i, v_i)$为键值对，$K(k_i, v_i)$为核函数，用来衡量查询和键之间的距离。非参数注意力汇聚可以简化式$\eqref{eq:non_para}$所示，即将查询和键之间映射为注意力权重，查询结果是对值的加权平均，这里需要保证$\alpha(q, k_i) \ge 0$且$\sum_{i = 1}^n \alpha(q, k_i) = 1$，因此，可以使用注意力得分函数$s(q, k_i)$后使用$Softmax$函数映射为$\alpha(q, k_i) $。
@@ -52,8 +52,10 @@ $$
 当查询和键是不同长度的矢量时，可以使用加性注意力作为得分函数，如式$\eqref{eq:add_atten}$所示：
 
 $$
+\begin{equation}
 s(\mathbf q, \mathbf k) = \mathbf w_v^\top \text{tanh}(\mathbf W_q\mathbf q + \mathbf W_k \mathbf k) \in \mathbb{R},
 \label{eq:add_atten}
+\end{equation}
 $$
 
 其中，$\mathbf{q} \in \mathbb{R}^q$、$\mathbf{k} \in \mathbb{R}^k$，参数$\mathbf W_q\in\mathbb R^{h\times q}$、$\mathbf W_k\in\mathbb R^{h\times k}$、$\mathbf w_v\in\mathbb R^{h}$可通过网络进行学习。
@@ -61,10 +63,11 @@ $$
 ### 缩放点积注意力
 
 点积注意力要求查询和键具有相同的长度$d$，其计算如式$\eqref{eq:dot_atten}$所示：
-
 $$
+\begin{equation}
 f(\mathbf Q) = softmax\left(\frac{\mathbf Q \mathbf K^\top }{\sqrt{d}}\right) \mathbf V
 \label{eq:dot_atten}
+\end{equation}
 $$
 
 其中$d$为向量的长度。
