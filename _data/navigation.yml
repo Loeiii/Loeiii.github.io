@@ -4,7 +4,7 @@ main:
 #    url: /publications/
 
   - title: "学习笔记"
-    url: /year-archive/
+    url: /notes/
     
   - title: "杂记"
     url: /talks/    
