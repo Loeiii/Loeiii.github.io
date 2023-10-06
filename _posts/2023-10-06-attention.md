@@ -37,10 +37,12 @@ $$
 ### 参数注意力汇聚
 
 参数注意力汇聚即在注意力汇聚中的权重是可以学习的，可以简单的表述为式$\eqref{eq:para_atten}$所示：
+
 $$
 f(q) = softmax\left(\boldsymbol{s}(q, \boldsymbol{k})\cdot\boldsymbol{\omega}\right)\cdot\boldsymbol{v}^{T}
 \label{eq:para_atten}
 $$
+
 其中$\omega$为可学习的参数。
 
 ## 注意力得分数
