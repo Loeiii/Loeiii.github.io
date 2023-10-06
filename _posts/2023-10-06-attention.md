@@ -20,6 +20,7 @@ tags:
 ### 非参数注意力汇聚
 
 ***Nadaraya-Watson核回归*（Nadaraya-Watson kernel regression）**是一个典型的非参数注意力汇聚模型，如式$\eqref{eq:NWkernel}$所示：
+
 $$
 %\begin{equation}
 	\begin{align}
@@ -28,6 +29,7 @@ $$
 	\end{align}
 %\end{equation}
 $$
+
 其中$q$为查询，$(k_i, v_i)$为键值对，$K(k_i, v_i)$为核函数，用来衡量查询和键之间的距离。非参数注意力汇聚可以简化式$\eqref{eq:nonpara}$所示，即将查询和键之间映射为注意力权重，查询结果是对值的加权平均，这里需要保证$\alpha(q, k_i) \ge 0$且$\sum_{i = 1}^n \alpha(q, k_i) = 1$，因此，可以使用注意力得分函数$s(q, k_i)$后使用$Softmax$函数映射为$\alpha(q, k_i) $。
 
 如果键越接近给定的查询，那么相应的值的权重越大，对该值的倾向性（注意力）也就越大。同时，如果有足够的数据，非参数注意力汇聚会收敛到最优结果。
