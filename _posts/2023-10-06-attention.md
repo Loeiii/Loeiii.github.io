@@ -61,6 +61,7 @@ $$
 ### 缩放点积注意力
 
 点积注意力要求查询和键具有相同的长度$d$，其计算如式$\eqref{eq:dot_atten}$所示：
+
 $$
 \begin{equation}
 f(\mathbf Q) = softmax\left(\frac{\mathbf Q \mathbf K^\top }{\sqrt{d}}\right) \mathbf V
