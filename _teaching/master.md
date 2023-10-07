@@ -1,9 +1,9 @@
 ---
-title: "硕士研究生"
+title: "清华大学 ｜ 深圳"
 collection: teaching
-type: "M.E"
+type: "硕士"
 permalink: /teaching/master
-venue: "清华大学，深圳国际研究生院"
+venue: "电子与通信工程 深圳国际研究生院"
 date: 2022-08-23
 location: "深圳, 中国"
 ---
