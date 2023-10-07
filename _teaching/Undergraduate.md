@@ -1,7 +1,7 @@
 ---
 title: "本科"
 collection: teaching
-type: "Undergraduate course"
+type: " "
 permalink: /teaching/Undergraduate
 venue: "东南大学"
 date: 2018-08-2022.06
