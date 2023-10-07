@@ -3,7 +3,7 @@ title: "硕士研究生"
 collection: teaching
 type: "U"
 permalink: /teaching/master
-venue: "清华大学 深圳国际研究生院"
+venue: "清华大学，深圳国际研究生院"
 date: 2022-08-23
 location: "深圳, 中国"
 ---
