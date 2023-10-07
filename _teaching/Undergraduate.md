@@ -1,5 +1,5 @@
 ---
-title: "东南大学 ｜ 南京"
+title: "东南大学｜南京"
 collection: teaching
 type: "本科"
 permalink: /teaching/undergraduate
@@ -8,7 +8,7 @@ date: 2018-08-23
 location: "南京, 中国"
 ---
 
-This is a description of a teaching experience. You can use markdown like any other post.
+GPA：3.78/4.00（专业前20%）
 
 Heading 1
 ======
