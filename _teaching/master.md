@@ -1,5 +1,5 @@
 ---
-title: "清华大学 ｜ 深圳"
+title: "清华大学｜深圳"
 collection: teaching
 type: "硕士"
 permalink: /teaching/master
