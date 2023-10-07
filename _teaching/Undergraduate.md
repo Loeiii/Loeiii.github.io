@@ -4,7 +4,7 @@ collection: teaching
 type: "Undergraduate course"
 permalink: /teaching/Undergraduate
 venue: "东南大学"
-date: 2018.08-2022.06
+date: 2018-08-2022.06
 location: "南京, 中国"
 ---
 
