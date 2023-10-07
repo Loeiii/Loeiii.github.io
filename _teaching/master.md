@@ -1,7 +1,7 @@
 ---
 title: "硕士研究生"
 collection: teaching
-type: "U"
+type: "M.E"
 permalink: /teaching/master
 venue: "清华大学，深圳国际研究生院"
 date: 2022-08-23
