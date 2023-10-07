@@ -8,13 +8,10 @@ date: 2022-08-23
 location: "深圳, 中国"
 ---
 
-This is a description of a teaching experience. You can use markdown like any other post.
+GPA：3，89/4.00
 
-Heading 1
-======
+## 教育经历
+**相关课程：**数字图像处理、大数据机器学习、分布式机器学习、大数据分析
 
-Heading 2
-======
+## 项目经历
 
-Heading 3
-======
