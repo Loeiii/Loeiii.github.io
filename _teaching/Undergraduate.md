@@ -1,9 +1,9 @@
 ---
-title: "本科"
+title: "东南大学 ｜ 南京"
 collection: teaching
-type: "B.E"
+type: "本科"
 permalink: /teaching/undergraduate
-venue: "东南大学，信息科学与工程学院"
+venue: "信息工程 信息科学与工程学院"
 date: 2018-08-23
 location: "南京, 中国"
 ---
