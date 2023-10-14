@@ -1,0 +1,103 @@
+# Python函数
+
+- `numel()` 返回数组中元素的个数，常用于模型统计
+- `map(function, iterable)` 返回一个列表，其中`function`是一个函数名，`iterable`为可迭代对象，如列表、字符串等，上述两种方法结合可用来统计网络参数
+
+```
+# 1. 借助循环的方式统计网络参数
+params = sum(x.numel() for x in list(net.parameters()))
+# 2. 使用map函数统计
+params = sum(map(lambda x: x.numel(), net.paramters()))
+```
+
+## Pathlib
+
+`Pathlib`为`python`自带的处理文件/文件夹/路径等的库，其将路径表示为独特的对象，并为路径处理引入了更多可扩展的用法，最常用的子类为`Path`，该子类几乎可以访问`Pathlib`的所有功能
+
+### 导入
+
+```
+from pathlib import Path
+```
+
+### 创建路径
+
+#### 创建新路径
+
+```
+# 使用当前工作路径
+path = Path.cwd()
+
+# 使用Home
+path = Path.home()
+
+# 使用字符串指定路径
+path = Path('Notes/Python')
+```
+
+#### 路径拼接
+
+可以使用正斜杠`/`实现路径的拼接
+
+```
+path = Path(' Notes') / 'Python'
+# 或者
+path = path / 'learn.md'
+```
+
+#### 转为`str`
+
+将`Path`转为`str`（如借用部分`os`的功能时），仅需要借助指令`str(path)`即可实现
+
+#### 获取绝对路径
+
+使用`path.absolute()`即可获得当前路径的绝对路径，且获得的路径仍是`Path`的对象
+
+### Path属性
+
+- 检查路径是否存在：**`path.exists()`**，返回布尔值
+- 判断是否为文件或者文件夹：**`path.is_file()`** **`path.is_dir`**，返回布尔值
+- 获取上一级目录：`path.parent`，返回上一级目录，仍是`Pathlib`的对象
+- 获取所有上级目录：`path.parents`，返回一个生成器，包含所有上级目录，每个目录仍是`Path`的对象
+- 获取文件名：`path.name`，返回文件名，`str`类型
+- 获取后缀：`path.suffix`，返回`str`类型
+- 获取前缀：`path.stem`，`str`类型
+- 拆分目录：`path.parts`，返回元组，元组中每个元素为`str`类型的单级目录
+
+```
+path.parent # PosixPath('Notes/Python')
+path.name   # 'learn.md'
+path.suffix # '.md'
+path.stem   # 'learn'
+path.parts  # ('Notes', 'Python', 'learn.md')
+```
+
+### 处理目录
+
+#### 创建/删除目录
+
+```
+# 创建目录
+path.mkdir(parents = True, exist_ok = True) # 默认上级目录都存在，创建最后一级目录，
+																					 # 上级目录不存在时，需要设置parents = True
+
+# 删除目录
+path.rmdir() # 如果path是多级目录，仅删除最后一级目录
+```
+
+#### 获取目录内的所有文件
+
+`path.iterdir()`
+
+`os.listdir()`
+
+#### 获取指定后缀的文件
+
+配合`glob`即可获取文件夹内包含制定字符或者具有指定后缀的文件，同样也可以使用 `os.listdir()`配合`glob`实现，两者的的区别与上述获取所有文件的区别相同。
+
+```
+file_list = list(path.glob("*.jpg"))
+# 或
+file_list = os.listdir.glob("*.jpg"))
+```
+

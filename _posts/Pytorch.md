@@ -1,0 +1,133 @@
+## 一些Torch库
+### torch-fidelity
+
+这是`pytorch`中用来计算生成模型评价指标的库，包含下列指标：
+
+- [x] Inception Score (ISC)
+- [x] Fréchet Inception Distance (FID)
+- [x] Kernel Inception Distance (KID)
+- [x] Precision and Recall (PRC)
+- [x] Perceptual Path Length (PPL)
+
+#### 安装
+```python
+pip install torch-fidelity
+```
+#### 快速调用
+- 命令行调用
+
+```python
+# Inception Score
+fidelity --gpu 0 --isc --input1 ~/images/
+# IS/FID/KID，需要计算加入相应调用参数即可，input1和input2可以是文件夹或相应的计算好的feature
+fidelity --gpu 0 --isc --fid --kid --input1 <input> --input2 cifar10-train
+```
+- python API调用
+
+```python
+metrics_dict = torch_fidelity.calculate_metrics(
+    input1= 'fileroot',
+    input2= 'cifar10-train',
+    cuda=True,
+    isc=True,
+    fid=True,
+    kid=True,
+    verbose=False,
+)
+```
+
+
+## torch.nn
+### `torch.nn.Identity()`
+
+- **作用：** 不区分参数的占位符，在网络中不进行任何处理，只用于占位，常用于残差网络中skip connection处
+
+### torch.nn.functional
+#### `torch.nn.functional.pad`
+- **作用：** 扩充张量数据的边界
+- **参数：** `input`：输入；`pad`：要扩充的维度和数目；`mode`：填充模式；`value`：填充的值，仅当mode为‘constant’时有效
+- **用法：**
+
+```
+# pad为元组，两两一对，对应相应维度前后扩充的数目，优先对最后的维度进行扩充
+input = torch.randn([2,3,4,5])
+pad = (1, 2, 3, 4)
+output = torch.nn.functional.pad(input, pad, mode = 'constant', value = 0)
+# output.shape() 为[2, 3, 11, 8]
+```
+
+#### `torch.nn.functional.softmax`
+
+## 一维Tensor创建
+
+```
+# 基本参数：- start：起始值，默认为0  - end：末尾值  - step：步长  - out：赋予哪个变量 
+# - dtype：元素的数据类型  - device：设备  - requires_grad：是否需要梯度，默认为`false`
+torch.arange()
+# 左开右闭
+torch.range()
+# 左闭右闭
+torch.linspace(start, end, steps)
+# 创建[start, end]之间具有`steps`个元素的等间隔数组
+```
+
+## Torchvision函数用法
+### torchvision.transform
+#### `ToTensor()` 
+
+- **作用：**将输入的（H, W, C）形状的`np.ndarray`数组或`PIL`库中`Image`导入的原始图片转化为(C, H, W)形状的`torch.FloatTensor`
+- **参数：**`normalize`，是否归一化到[0, 1]，默认为`True`，其归一化方式为直接除以255
+- **用法：**
+
+```
+from torchvision.transform import ToTensor # 导入函数
+
+img = ToTensor(normalize = True)(img)	# 转换，注意需要在函数后面引入转换的图片
+```
+
+## Torch深度学习训练
+
+### 数据载入
+
+#### 创建自己的datsset
+
+对自己的数据集创建dataset loading script，使用一行代码实现数据读入
+
+## 多GPU并行训练
+
+### 数据并行
+#### 数据划分
+使用`DistributedSampler`函数对数据进行划分，该函数存在于`torch.utils.data.distributed`目录下，因此调用方式有
+
+```
+# 仅导入torch，需要调用，此时torch.utils.data.distributed下没有DistributedSampler提示
+import torch
+
+dis_data = torch.utils.data.distributed.DistributedSampler(data_set)
+
+# 导入torch.utils.data.distributed，可以获得DistributedSampler的提示
+import torch.utils.data.distributed
+```
+
+#### 权重初始化
+数据并行时需要保证每个worker上面的权重初始化是相同的，否则梯度将不是针对同一组权重，导致训练结果的不准确。因此，权重的初始化可以通过两种方式来实现：
+
+- 在CPU上完成权重初始化后载入到GPU
+- 在主进程上保存初始化权重后在不同的子进程上载入权重
+
+#### 转化为分布式模型
+对完成参数初始化的模型，使用以下代码转化为分布式模型
+```
+torch.nn.parallel.DistributedDataParallel(model= , device_ids=[]) 
+```
+#### 训练
+#### 梯度更新
+使用`loss.backward()`仅得到当前进程的`loss`，需要使用`reduce`的方法来实现所有worker上损失的汇聚，最为简单的方法是对所有worker损失求平均。
+
+```
+# 求平均的方法实现loss的reduce
+loss.backward()
+loss = reduce_value(loss, average = True)
+```
+#### 验证
+同理，在完成训练后验证阶段也需要对所有worker的损失/正确个数求和，此时可将`reduce_value`中`average`参数设置为`False`实现
