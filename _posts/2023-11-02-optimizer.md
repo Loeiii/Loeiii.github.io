@@ -7,6 +7,7 @@ tags:
   - optimize
 ---
 
+本文主要记载在深度学习中常用的梯度更新算法
 
 # Optimization Algorithms in Deep Learning
 
