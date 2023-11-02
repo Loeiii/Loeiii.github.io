@@ -78,7 +78,6 @@ $$
 
 
 ### DDIM
-
 在DDIM中，作者提出，$p(x_{1:t})$分解为马尔可夫过程不是必须的，只要保证$p(x_{t}|x_{0})$和$p(x_{t-1}|x_{t}, x_{0})$与DDPM是相同的就可以得到DDPM的等价模型。文中，作者将$p(x_{t-1}|x_{t}, x_{0})$的分布定义为$\eqref{eq:ddim_psigma}$：
 
 $$
@@ -94,7 +93,15 @@ $$
 \sigma_{t} = \eta \sqrt{\frac{\bar{\beta}_{t -1}\beta_{t}}{\bar{\beta}_{t}}}
 $$
 
-$\eta$为可调节的参数，使用网络估计得到的$\boldsymbol{\epsilon}_{\theta}\left(\boldsymbol{x}_{t}, t\right)$替换$\boldsymbol{x}_{0}$得到
+$\eta$为可调节的参数，使用网络估计得到的
+
+$\boldsymbol{\epsilon}_{\theta}\left(\boldsymbol{x}_{t}, t\right)$
+
+替换
+
+$\boldsymbol{x}_{0}$
+
+得到
 
 $$
 \begin{equation}
@@ -295,8 +302,13 @@ $$
 $$
 
 其中，
-$\boldsymbol{z}_{t} = \boldsymbol{V}(\boldsymbol{\alpha}_{t}\boldsymbol{u}_{t} + \boldsymbol{\sigma}_{t} \boldsymbol{u}_{\boldsymbol{\epsilon},t})$，
+
+$\boldsymbol{z}_{t} = \boldsymbol{V}(\boldsymbol{\alpha}_{t}\boldsymbol{u}_{t} + \boldsymbol{\sigma}_{t} \boldsymbol{u}_{\boldsymbol{\epsilon},t})$
+
+，
+
 $\boldsymbol{V}$
+
 表示DCT逆变化，在频率空间的采样过程与原DDPM保持相同。
 
 <!--我怎么感觉这写得很怪-->
