@@ -72,4 +72,4 @@ trust\_ratio = \phi\left(\frac{\Vert \omega_{t - 1}\Vert}{\Vert\hat{m}_{t} /(\sq
 \end{gather}
 $$
 
-其中，$\phi(\cdot)$是一个可选择的映射函数，一般选取$\phi(z) = z$。但是LAMB只适用于大模型的预训练环节，其在$batch\_size < 512$时无法起到显著作用。
+其中，$\phi(\cdot)$是一个可选择的映射函数，一般选取$\phi(z) = z$。但是LAMB只适用于大模型的预训练环节，其在$batch size < 512$时无法起到显著作用。
