@@ -1,7 +1,7 @@
 ---
-title: '深度学习优化策略'
-date: 2023-10-14
-permalink: /notes/strategy/
+title: '深度学习优化算法'
+date: 2023-11-02
+permalink: /notes/optimizer/
 tags:
   - deep learning
   - optimize
