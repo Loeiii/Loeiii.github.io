@@ -272,7 +272,11 @@ LDM在原本的DDPM的基础上使用预训练的VAE将输入压缩到潜空间�
 
 ## Blurring Diffusion Model(BDM)
 
-BDM利用DCT将模型定义在了频率空间，对图像在频率空间的表征进行扩散模型的训练，令$\boldsymbol{u}_{t} = \boldsymbol{V}^{\top}\boldsymbol{x}_{t}$，$\boldsymbol{u}_{\boldsymbol{\epsilon},t} = \boldsymbol{V}^{\top}\boldsymbol{\epsilon}_{t}$，其中$\boldsymbol{V}^{\top}$表示DCT变换矩阵，则前向过程重构为式$\eqref{eq:bdm_forward}$所示：
+BDM利用DCT将模型定义在了频率空间，对图像在频率空间的表征进行扩散模型的训练，令
+$\boldsymbol{u}_{t} = \boldsymbol{V}^{\top}\boldsymbol{x}_{t}$，$\boldsymbol{u}_{\boldsymbol{\epsilon},t} = \boldsymbol{V}^{\top}\boldsymbol{\epsilon}_{t}$
+，其中
+$\boldsymbol{V}^{\top}$
+表示DCT变换矩阵，则前向过程重构为式$\eqref{eq:bdm_forward}$所示：
 
 $$
 \begin{align}
@@ -290,6 +294,9 @@ $$
 \end{equation}
 $$
 
-其中，$\boldsymbol{z}_{t} = \boldsymbol{V}(\boldsymbol{\alpha}_{t}\boldsymbol{u}_{t} + \boldsymbol{\sigma}_{t} \boldsymbol{u}_{\boldsymbol{\epsilon},t})$，$\boldsymbol{V}$表示DCT逆变化，在频率空间的采样过程与原DDPM保持相同。
+其中，
+$\boldsymbol{z}_{t} = \boldsymbol{V}(\boldsymbol{\alpha}_{t}\boldsymbol{u}_{t} + \boldsymbol{\sigma}_{t} \boldsymbol{u}_{\boldsymbol{\epsilon},t})$，
+$\boldsymbol{V}$
+表示DCT逆变化，在频率空间的采样过程与原DDPM保持相同。
 
 <!--我怎么感觉这写得很怪-->
