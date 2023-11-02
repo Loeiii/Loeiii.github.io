@@ -1,3 +1,13 @@
+---
+title: 'Pytorch学习笔记'
+date: 2023-11-02
+permalink: /notes/pytorch/
+tags:
+  - pytroch
+  - deep learning
+---
+
+本文主要记录了pytorch使用过程中遇到的一些有用的库或者函数
 ## 一些Torch库
 ### torch-fidelity
 
