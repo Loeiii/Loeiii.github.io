@@ -1,0 +1,32 @@
+
+# 图表
+## 子图竖排
+子图竖排，并且每一列可以选择加入标签或者标题
+
+```latex
+\begin{figure}
+    \centering
+    \begin{subfigure}{0.3\textwidth}
+        \caption{小光圈图片}
+       \includegraphics[width = \textwidth]{figures/defocus/0_29_inf.png}\\
+        \includegraphics[width = \textwidth]{figures/defocus/0_27_inf.png}
+        \label{fig:1}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.3\textwidth}
+        \caption{大光圈图片}
+        \includegraphics[width = \textwidth]{figures/defocus/0_29_hr.png}\\
+        \includegraphics[width = \textwidth]{figures/defocus/0_27_hr.png}
+        \label{fig:2}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.3\textwidth}
+        \caption{模拟大光圈图片}
+        \includegraphics[width = \textwidth]{figures/defocus/0_29_sr.png}\\
+        \includegraphics[width = \textwidth]{figures/defocus/0_27_sr.png}
+        \label{fig:3}
+    \end{subfigure}
+    \caption{散焦训练集采样结果}
+    \label{fig:appendix-defocus}
+\end{figure}
+```
