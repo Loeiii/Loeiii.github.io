@@ -1,3 +1,11 @@
+---
+title: "VS Code爬坑笔记"
+collection: talks
+type: "Talk"
+permalink: /talks/vscode
+date: 2023-11-03
+---
+
 ## Python Debug
 
 ### 设置调试时的默认文件路径
