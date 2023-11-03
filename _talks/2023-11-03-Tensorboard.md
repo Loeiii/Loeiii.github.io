@@ -1,4 +1,11 @@
-# Tensorboard Note
+---
+title: "Tensorboard"
+collection: talks
+type: "Talk"
+permalink: /talks/tensorboard
+date: 2012-11-03
+---
+
 在深度学习训练过程中，使用Tensorboard来绘制中间网络的各种状态进行可视化。
 
 ## 0. 安装tensorboard
